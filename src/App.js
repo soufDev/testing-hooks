@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import "./App.css";
+
+const ButtonStyled = styled.button`
+  display: inline-block;
+  color: #111;
+  font-size: 5em;
+  margin: 1em;
+  padding: 0.25em 0.5em;
+  border: 2px solid #30eccdbb;
+  border-radius: 5px;
+  background-color: #30eccdbb;
+`;
+
+const TomatoButton = styled(ButtonStyled)`
+  color: #fff;
+  border-color: tomato;
+  background-color: tomato;
+`;
 
 function Button() {
   let [value, setValue] = useState(0);
   function handleOnClick() {
-    setValue(value+1);
+    setValue((value + 1) % 6);
   }
- return (
-    <button onClick={handleOnClick}>{value}</button>
-  )
+  return <ButtonStyled onClick={handleOnClick}>{value}</ButtonStyled>;
 }
 function App() {
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <Button />
       </header>
     </div>
