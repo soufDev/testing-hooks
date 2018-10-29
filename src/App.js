@@ -24,7 +24,7 @@ function Button() {
   function handleOnClick() {
     setValue((value + 1) % 6);
   }
-  return <ButtonStyled onClick={handleOnClick}>{value}</ButtonStyled>;
+  return <TomatoButton onClick={handleOnClick}>{value}</TomatoButton>;
 }
 function App() {
   return (
